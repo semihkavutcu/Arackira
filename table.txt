@@ -1,0 +1,105 @@
+CREATE TABLE public.admins
+(
+    admin_id integer NOT NULL DEFAULT nextval('admins_admin_id_seq'::regclass),
+    admin_kad character varying(20) COLLATE pg_catalog."default",
+    admin_password character varying(500) COLLATE pg_catalog."default",
+    admin_updated_at timestamp without time zone,
+    CONSTRAINT admins_pkey PRIMARY KEY (admin_id)
+)
+CREATE TABLE public.araba
+(
+    araba_id integer NOT NULL DEFAULT nextval('araba_araba_id_seq'::regclass),
+    araba_ad character varying(20) COLLATE pg_catalog."default",
+    katag_id integer,
+    markas_id integer,
+    CONSTRAINT araba_pkey PRIMARY KEY (araba_id)
+)
+CREATE TABLE public.araba_plaka
+(
+    araba_id integer NOT NULL DEFAULT nextval('araba_plaka_araba_id_seq'::regclass),
+    araba_plaka character varying(20) COLLATE pg_catalog."default",
+    CONSTRAINT araba_plaka_pkey PRIMARY KEY (araba_id)
+)
+CREATE TABLE public.cari
+(
+    cari_id integer NOT NULL DEFAULT nextval('cari_cari_id_seq'::regclass),
+    toplam numeric,
+    CONSTRAINT cari_pkey PRIMARY KEY (cari_id)
+)
+CREATE TABLE public.firma
+(
+    firma_id integer NOT NULL DEFAULT nextval('firma_firma_id_seq'::regclass),
+    firma_ad character varying(100) COLLATE pg_catalog."default",
+    firma_adres character varying(200) COLLATE pg_catalog."default",
+    firma_yetkili_ad character varying(20) COLLATE pg_catalog."default",
+    CONSTRAINT firma_pkey PRIMARY KEY (firma_id)
+)
+CREATE TABLE public.g_bedel
+(
+    g_id integer NOT NULL DEFAULT nextval('g_bedel_g_id_seq'::regclass),
+    araba_id integer,
+    fiyat numeric,
+    CONSTRAINT g_bedel_pkey PRIMARY KEY (g_id)
+)
+CREATE TABLE public.k_araba
+(
+    k_id integer NOT NULL DEFAULT nextval('k_araba_k_id_seq'::regclass),
+    k_araba_id integer,
+    CONSTRAINT k_araba_pkey PRIMARY KEY (k_id)
+)
+CREATE TABLE public.k_zarar
+(
+    kaza_id integer NOT NULL DEFAULT nextval('k_zarar_kaza_id_seq'::regclass),
+    fiyat numeric,
+    CONSTRAINT k_zarar_pkey PRIMARY KEY (kaza_id)
+)
+CREATE TABLE public.kategori
+(
+    kat_id integer NOT NULL DEFAULT nextval('kategori_kat_id_seq'::regclass),
+    kat_ad character varying(20) COLLATE pg_catalog."default",
+    CONSTRAINT kategori_pkey PRIMARY KEY (kat_id)
+)
+
+CREATE TABLE public.kaza
+(
+    kaza_id integer NOT NULL DEFAULT nextval('kaza_kaza_id_seq'::regclass),
+    kaza_adres character varying(20) COLLATE pg_catalog."default",
+    kaza_arac_id integer,
+    CONSTRAINT kaza_pkey PRIMARY KEY (kaza_id)
+)
+CREATE TABLE public.kiralanmis
+(
+    k_id integer NOT NULL DEFAULT nextval('kiralanmis_k_id_seq'::regclass),
+    araba_id integer,
+    fiyat numeric,
+    sure integer,
+    miktar integer,
+    CONSTRAINT kiralanmis_pkey PRIMARY KEY (k_id)
+)
+CREATE TABLE public.marka
+(
+    marka_id integer NOT NULL DEFAULT nextval('marka_marka_id_seq'::regclass),
+    marka_ad character varying(20) COLLATE pg_catalog."default",
+    CONSTRAINT marka_pkey PRIMARY KEY (marka_id)
+)
+CREATE TABLE public.odeme
+(
+    odeme_id integer NOT NULL DEFAULT nextval('odeme_odeme_id_seq'::regclass),
+    odeme_firma_id integer,
+    odeme_toplam numeric,
+    CONSTRAINT odeme_pkey PRIMARY KEY (odeme_id)
+)
+CREATE TABLE public.s_bedel
+(
+    s_id integer NOT NULL DEFAULT nextval('s_bedel_s_id_seq'::regclass),
+    araba_id integer,
+    fiyat numeric,
+    CONSTRAINT s_bedel_pkey PRIMARY KEY (s_id)
+)
+CREATE TABLE public.y_bedel
+(
+    y_id integer NOT NULL DEFAULT nextval('y_bedel_y_id_seq'::regclass),
+    araba_id integer,
+    fiyat numeric,
+    CONSTRAINT y_bedel_pkey PRIMARY KEY (y_id)
+)

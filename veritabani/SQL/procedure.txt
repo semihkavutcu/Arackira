@@ -1,0 +1,13 @@
+CREATE OR REPLACE PROCEDURE public.urun()
+LANGUAGE 'sql'
+AS $BODY$select * FROM urun$BODY$;
+
+CREATE OR REPLACE PROCEDURE public.cari()
+LANGUAGE 'sql'
+AS $BODY$select * FROM cari$BODY$;
+CREATE OR REPLACE PROCEDURE public.garson()
+LANGUAGE 'sql'
+AS $BODY$select * FROM garson$BODY$;
+CREATE OR REPLACE PROCEDURE public.firma()
+LANGUAGE 'sql'
+AS $BODY$select * FROM firma$BODY$;

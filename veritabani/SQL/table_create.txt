@@ -1,0 +1,91 @@
+CREATE TABLE marka (
+    marka_id SERIAL PRIMARY KEY,
+    marka_ad VARCHAR(20)
+);
+/*1*/
+CREATE TABLE kategori (
+    kat_id SERIAL PRIMARY KEY,
+    kat_ad VARCHAR(20)
+);
+/*2*/
+CREATE TABLE garson (
+    garson_id SERIAL PRIMARY KEY,
+    garson_ad VARCHAR(20),
+	garson_yetki VARCHAR(20)
+);
+/*3*/
+CREATE TABLE urun (
+    urun_id SERIAL PRIMARY KEY,
+    urun_ad VARCHAR(20),
+	katag_id int,
+	markas_id int,
+	fiyat decimal
+);
+/*4*/
+CREATE TABLE kasa (
+    kasa_id SERIAL PRIMARY KEY,
+    garsons_id int,
+	urun_id int,
+	masa_id int
+);
+/*5*/
+CREATE TABLE masa (
+    masa_id SERIAL PRIMARY KEY,
+    masa_ad varchar(20)
+);
+/*6*/
+CREATE TABLE admins (
+    admin_id SERIAL PRIMARY KEY,
+    admin_kad varchar(20),
+	admin_password varchar(500),
+	admin_updated_at timestamp
+);
+/*7*/
+CREATE TABLE puantaj (
+    puan_id SERIAL PRIMARY KEY,
+    garson_id int,
+	days date
+);
+/*8*/
+CREATE TABLE kesinti (
+    kesinti_id SERIAL PRIMARY KEY,
+    kesinti_ad varchar(20),
+	kesinti_miktar decimal
+);
+/*9*/
+CREATE TABLE kesinti_all (
+    kesinti_all_id SERIAL PRIMARY KEY,
+    garson_id int,
+	days date
+);
+/*10*/
+CREATE TABLE cari (
+    cari_id SERIAL PRIMARY KEY,
+	cari_day date,
+	toplam decimal
+);
+/*11*/
+
+CREATE TABLE stok (
+    stok_id SERIAL PRIMARY KEY,
+	stok_miktar int
+);
+/*12*/
+CREATE TABLE stok_ihtiyac (
+    stok_ihtiyac_id SERIAL PRIMARY KEY,
+	ihtiyac_miktar int
+);
+/*13*/
+CREATE TABLE odeme (
+    odeme_id SERIAL PRIMARY KEY,
+	odeme_firma_id int,
+	odeme_toplam decimal
+);
+/*14*/
+CREATE TABLE firma (
+    firma_id SERIAL PRIMARY KEY,
+	firma_ad varchar(100),
+	firma_adres varchar(200),
+	firma_yetkili_ad varchar(20)
+);
+/*15*/

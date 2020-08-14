@@ -1,0 +1,13 @@
+CREATE OR REPLACE PROCEDURE public.arabagor()
+LANGUAGE 'sql'
+AS $BODY$select * FROM araba inner join kategori on (katag_id=kat_id) inner join marka on(marka_id=markas_id)$BODY$;
+
+CREATE OR REPLACE PROCEDURE public.admins()
+LANGUAGE 'sql'
+AS $BODY$select admin_kad,admin_updated_at FROM admins$BODY$;
+CREATE OR REPLACE PROCEDURE public.cari()
+LANGUAGE 'sql'
+AS $BODY$select sum(toplam) FROM cari$BODY$;
+CREATE OR REPLACE PROCEDURE public.odeme()
+LANGUAGE 'sql'
+AS $BODY$select odeme_toplam FROM odeme$BODY$;

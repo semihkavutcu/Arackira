@@ -1,0 +1,11 @@
+firma.firma_id<>odeme.odeme_firma_id
+kaza.kaza_arac_id<> araba.araba_id
+kaza.kaza_id=k_zarar.kaza_id
+k_araba.k_araba_id=araba.araba_id
+araba_plaka.araba_id=araba.araba_id
+g_bedel.araba_id=araba.araba_id
+y_bedel.araba_id=araba.araba_id
+s_bedel.araba_id=araba.araba_id
+araba.katag_id=kategori.kat_id
+marka.marka_id=araba.markas_id
+kiralanmis.araba_id=araba.araba_id
